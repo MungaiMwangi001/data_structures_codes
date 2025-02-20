@@ -40,16 +40,17 @@ Output: [1,2]
  */
 
 
- function twosum(nums, target){
-    let map = {}
-    for(let i=0; i < nums.length; i++ ) { 
+ 
+ function twosum(nums, target) {
+    let map = {};
+    for (let i = 0; i < nums.length; i++) {
         const sum = target - nums[i];
-        if(sum in map){
-            return [map[sum], i]
+        if (sum in map) {
+            return [map[sum], i];
         }
-
+        map[nums[i]] = i; // Store the current number and its index
     }
- }
+}
 
 
  /**
@@ -73,3 +74,13 @@ Output: [1,2]
 
     }
  }
+
+ var twoSum = function (nums, target) {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) { // Start j from i + 1 to avoid using the same element twice
+            if (nums[i] + nums[j] === target) {
+                return [i, j];
+            }
+        }
+    }
+};
