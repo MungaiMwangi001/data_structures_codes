@@ -40,7 +40,7 @@ class RandomizedSet {
       
       // Remove the last element from the array
       this.values.pop();
-      // Delete the value from the map
+      // Delete the value from the map      
       this.valueToIndex.delete(val);
       return true;
     }

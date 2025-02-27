@@ -5,7 +5,8 @@ https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
 Problem:
 You are given an array prices where prices[i] is the price of a given stock on the ith day.
 
-You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in
+ the future to sell that stock.
 
 Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 
@@ -60,8 +61,9 @@ so we will update our maxProfitValue and move our right pointer alone
 
 step 3:
 
-price[left]=1 price[right]=3 profit=2
-here, price[left] is less than price[right], we will get profit, so we will compare the maxProfitValue with the current profit. 
+price[left]=1 price[right]=3 profit=2 
+here, price[left] is less than price[right], we will get profit, so we will compare the maxProfitValue with 
+the current profit. 
 We will update our maxProfitValue and move our right pointer alone
 
 step 4:
@@ -73,29 +75,31 @@ step 5:
 
 price[left]=1 price[right]=4 profit=3
 same logic as above
+
+c
 */
 
-left = 2;
-right = 1;
-let maxProfitValue = 0;
 
-prices =  [5,4,5,2,1]
-while (right < prices.length ){
-    if (price[left] < price(right)){
-        let profit = price[right] - price[left];
-        //profit = 1
-        //                        (0,1) = (1)
-         maxProfitValue = Math.max(maxProfitValue,profit);
-    
-    }
-    else{
+//[7,1,5,3,6,4]
+const maxProfit = (prices) => {
+    let left = 0; // Buy 1
+    let right = 1; // sell2
+    let maxProfitValue = 0;
+    while (right < prices.length) {
+      if (prices[left] < prices[right]) {
+        let profit = prices[right] - prices[left]; // our current profit
+  
+        maxProfitValue = Math.max(maxProfitValue, profit);
+      } else {
         left = right;
+      }
+      right++;
     }
-    right++
-
     return maxProfitValue;
-}
-
+  };
+  
+  module.exports.maxProfit = maxProfit;
+  
 
 
   
